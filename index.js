@@ -41,7 +41,7 @@ router.route("/api/:data").get(function(req, res) {
       cursor.forEach(function(doc, err) {
         assert.equal(null, err);
         if(doc.Type == "WEEKLY") {
-          doc['Week'] = getWeek(doc.Start, doc.Items[1].length)
+          doc['Week'] = getWeek(doc.Start, doc.Items[1][0].length)
         }
         result.push(doc)
       }, function() {
